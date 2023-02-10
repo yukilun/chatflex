@@ -6,6 +6,7 @@
 //RESET STYLES
 *{
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -16,6 +17,9 @@ body {
 
 .container {
     min-height: 100vh;
+    min-height: -moz-available;
+    min-height: -webkit-fill-available;
+    min-height: stretch;
     display: flex;
     flex-direction: column;
     justify-content: center;
