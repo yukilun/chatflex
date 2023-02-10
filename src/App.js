@@ -32,7 +32,7 @@ export default function App() {
                         <Route index element={<ProtectedRoute><Home /></ProtectedRoute>}/>
                         <Route path="login" element={<RedirectRoute><Login /></RedirectRoute>} />
                         <Route path="register" element={<RedirectRoute><Register /></RedirectRoute>} />
-                        <Route path="*" element={<RedirectRoute><PageNotFound /></RedirectRoute>} />
+                        <Route path="*" element={<PageNotFound />}/>
                     </Route>
                 </Routes>
             </BrowserRouter>
