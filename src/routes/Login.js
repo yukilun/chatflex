@@ -3,13 +3,11 @@ import './Login.scss';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF, FaGithub } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth, db, storage } from '../firebase';
+import { auth, db } from '../firebase';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { loginValidate } from '../helper/validate';
-// import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { ref, child, get, set } from "firebase/database";
-import { ref as sRef,  uploadBytesResumable, getDownloadURL} from 'firebase/storage';
 
 export default function Login() {
 
@@ -62,7 +60,6 @@ export default function Login() {
     const msg = toast.loading(`Logging in with ${type} account...`);
     try {
       const result = await signInWithPopup(auth, provider);
-      console.log(result);
       let photoURL = type==="facebook" ? result._tokenResponse.photoUrl+"?type=large&access_token="+result._tokenResponse.oauthAccessToken: null;
       // check if any user info in firestore
       const snapshot = await get(child(ref(db), `users/${result.user.uid}/uid`));
