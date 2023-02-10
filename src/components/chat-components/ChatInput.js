@@ -6,7 +6,7 @@ import { ChatContext } from '../../context/ChatContext';
 import { toast } from 'react-toastify';
 import { db, storage } from '../../firebase';
 import { UserContext } from '../../context/UserContext';
-import { serverTimestamp, set, child, ref, get, push } from 'firebase/database';
+import { set, child, ref, get, push } from 'firebase/database';
 import { uploadBytesResumable, ref as sRef, getDownloadURL } from 'firebase/storage';
 
 export default function ChatInput() {
@@ -69,7 +69,7 @@ export default function ChatInput() {
                         })
                     ]);
                 }
-                const time = serverTimestamp();
+                const time = new Date().getTime();
                 let message = { text, image: '', time, sender: user.uid };
                 // upload image if needed
                 if (image) {
