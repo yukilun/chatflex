@@ -49,6 +49,7 @@ export default function Register() {
             uid: userCredential.user.uid,
             email: input.email,
             ...userExtraInfo,
+            status: 'online'
           })
         ]);
 
