@@ -26,7 +26,6 @@ export default function App() {
     return (
         <main>
             <ToastContainer position="top-center" autoClose={2000} />
-            {/* <RouterProvider router={router} /> */}
             <BrowserRouter>
                 <Routes>
                     <Route path="/">
