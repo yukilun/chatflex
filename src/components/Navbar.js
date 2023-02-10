@@ -17,7 +17,7 @@ export default function Navbar({ isOpenNavbar, setOpenNavbar }) {
             setFilteredUsers(users);
         } 
         else {
-            setFilteredUsers(users.filter((user)=> user.displayName?.match(new RegExp('^' + searchQuery, "i")) || user.email?.match('^' + searchQuery + '$', 'i') ));
+            setFilteredUsers(users.filter((user)=> user.displayName?.match(new RegExp('^' + searchQuery, "i")) || user.email?.match(new RegExp('^' + searchQuery + '$', 'i'))  ));
         }
     }, [users, searchQuery]);
 

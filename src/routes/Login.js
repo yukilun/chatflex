@@ -3,12 +3,13 @@ import './Login.scss';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF, FaGithub } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import { auth, db } from '../firebase';
+import { auth, db, storage } from '../firebase';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth';
 import { toast } from 'react-toastify';
 import { loginValidate } from '../helper/validate';
 // import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 import { ref, child, get, set } from "firebase/database";
+import { ref as sRef,  uploadBytesResumable, getDownloadURL} from 'firebase/storage';
 
 export default function Login() {
 
@@ -47,6 +48,7 @@ export default function Login() {
     switch (type) {
       case 'google':
         provider = new GoogleAuthProvider();
+        provider.addScope("email");
         break;
       case 'facebook':
         provider = new FacebookAuthProvider();
@@ -61,6 +63,7 @@ export default function Login() {
     try {
       const result = await signInWithPopup(auth, provider);
       console.log(result);
+      let photoURL = type==="facebook" ? result._tokenResponse.photoUrl+"?type=large&access_token="+result._tokenResponse.oauthAccessToken: null;
       // check if any user info in firestore
       const snapshot = await get(child(ref(db), `users/${result.user.uid}/uid`));
       // if not, store the user info in firebase and create empty chat
@@ -70,7 +73,7 @@ export default function Login() {
           uid: result.user.uid,
           email: result.user.email,
           displayName: result.user.displayName || result._tokenResponse.screenName,
-          photoURL: result.user.photoURL,
+          photoURL: photoURL? photoURL: result.user.photoURL,
           status: 'online'
         });
       }
@@ -79,7 +82,7 @@ export default function Login() {
         await Promise.all([
           set(ref(db, `users/${result.user.uid}/email`), result.user.email),
           set(ref(db, `users/${result.user.uid}/displayName`), result.user.displayName),
-          set(ref(db, `users/${result.user.uid}/photoURL`), result.user.photoURL)
+          set(ref(db, `users/${result.user.uid}/photoURL`), photoURL? photoURL: result.user.photoURL)
         ])
       }
       navigate('/');
