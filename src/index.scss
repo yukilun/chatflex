@@ -111,8 +111,12 @@ button {
 .logo {
     font-family: 'Abril Fatface', cursive;
     color: $theme-dark;
-    font-size: $font-size-xxl;
-    letter-spacing: 0.2rem;
+    font-size: $font-size-xxl*0.8;
+    letter-spacing: 0.2rem*0.8;
+    @include md {
+        font-size: $font-size-xxl;
+        letter-spacing: 0.2rem;
+    }
 }
 
 @each $key, $val in $colors {
@@ -163,7 +167,10 @@ button {
     color: $gray-dark;
 
     .logo {
-        @include my(2);
+        @include my(1);
+        @include md {
+            @include my(2);
+        }
     }
     
     form {
