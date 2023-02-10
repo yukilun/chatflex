@@ -8,7 +8,7 @@ import { auth, storage, db } from '../firebase';
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { updateProfile, createUserWithEmailAndPassword } from 'firebase/auth';
 // import { doc, setDoc } from 'firebase/firestore';
-import { ref as dbRef, serverTimestamp, set} from 'firebase/database';
+import { ref as dbRef, set} from 'firebase/database';
 
 export default function Register() {
 
@@ -32,7 +32,7 @@ export default function Register() {
         // upload avatar file with uniqlo name
         let userExtraInfo = { displayName: input.name, photoURL: null };
         if (input.file) {
-          const storageRef = ref(storage, `${input.name + serverTimestamp()}`);
+          const storageRef = ref(storage, `${input.name + new Date().getTime()}`);
           await uploadBytesResumable(storageRef, input.file);
           // get downloadURL for the file
           let downloadURL = await getDownloadURL(storageRef);
@@ -40,21 +40,6 @@ export default function Register() {
         }
         // update the user profile
         await updateProfile(userCredential.user, userExtraInfo);
-
-        // // store info in database
-        // await Promise.all([
-        //   // store user info (except password)
-        //   setDoc(doc(db, 'users', userCredential.user.uid), {
-        //     type: 'email',
-        //     uid: userCredential.user.uid,
-        //     email: input.email,
-        //     ...userExtraInfo,
-        //     connections: [],
-        //     lastOnline: null
-        //   }),
-        //   // create empty chat for the user
-        //   setDoc(doc(db, "chats", userCredential.user.uid), {})
-        // ]);
 
         // store info in database
         await Promise.all([
@@ -64,9 +49,7 @@ export default function Register() {
             uid: userCredential.user.uid,
             email: input.email,
             ...userExtraInfo,
-          }),
-          // // create empty chat for the user
-          // set(dbRef(db, "chats/" + userCredential.user.uid), {})
+          })
         ]);
 
         toast.update(msg, { render: "Registered Successfully!", type: "success", isLoading: false, autoClose: 2000, closeButton: null });
