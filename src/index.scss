@@ -16,14 +16,18 @@ body {
 }
 
 .container {
-    min-height: 100vh;
+    min-height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
     min-height: -moz-available;
-    min-height: -webkit-fill-available;
-    min-height: stretch;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@supports (-webkit-touch-callout: none) {
+    .container {
+      min-height: -webkit-fill-available;
+    }
 }
 
 ul {
