@@ -17,7 +17,7 @@ export default function Navbar({ isOpenNavbar, setOpenNavbar }) {
             setFilteredUsers(users);
         } 
         else {
-            setFilteredUsers(users.filter((user)=> user.displayName.startsWith(searchQuery)));
+            setFilteredUsers(users.filter((user)=> user.displayName.match(new RegExp('^' + searchQuery, "i"))));
         }
     }, [users, searchQuery]);
 
