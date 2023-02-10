@@ -6,7 +6,7 @@ export default function NavHeader({setOpenNavbar}) {
   return (
     <div className='nav-header'>
         <button className='btn toggle' onClick={()=>setOpenNavbar(false)}><MdClose /></button>   
-        <h1 className='logo'>Chatflex</h1> 
+        <h1 className='logo'>chatflex</h1> 
     </div>
   )
 }
