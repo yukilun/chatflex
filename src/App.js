@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter , Routes, Route, Navigate } from "react-router-dom";
 import Home from './routes/Home.js';
 import Login from './routes/Login.js';
 import Register from './routes/Register.js';
@@ -27,13 +27,13 @@ export default function App() {
         <main>
             <ToastContainer position="top-center" autoClose={2000} />
             {/* <RouterProvider router={router} /> */}
-            <BrowserRouter>
+            <BrowserRouter basename="/chatflex">
                 <Routes>
                     <Route path="/">
                         <Route index element={<ProtectedRoute><Home /></ProtectedRoute>}/>
-                        <Route path="login" element={<RedirectRoute><Login /></RedirectRoute>} />
-                        <Route path="register" element={<RedirectRoute><Register /></RedirectRoute>} />
-                        <Route path="*" element={<RedirectRoute><PageNotFound /></RedirectRoute>} />
+                        <Route path="/login" element={<RedirectRoute><Login /></RedirectRoute>} />
+                        <Route path="/register" element={<RedirectRoute><Register /></RedirectRoute>} />
+                        <Route path="/*" element={<RedirectRoute><PageNotFound /></RedirectRoute>} />
                     </Route>
                 </Routes>
             </BrowserRouter>

@@ -7,12 +7,12 @@ import { getDatabase } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDdIzPsVkK0qMFNVpYTRDAJgKMu5-pIfEo",
-    authDomain: "chatflex-d988f.firebaseapp.com",
-    projectId: "chatflex-d988f",
-    storageBucket: "chatflex-d988f.appspot.com",
-    messagingSenderId: "314391867027",
-    appId: "1:314391867027:web:28131757e5e2aee9ab2766"
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID
   };
 
 // Initialize Firebase
