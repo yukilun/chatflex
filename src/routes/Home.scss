@@ -7,6 +7,7 @@
 
 .home-container {
     @include m(2);
+    position: relative;
     width: 90%;
     max-width: 1000px;
     height: 90%;
