@@ -1,0 +1,23 @@
+@use '../../styles' as *;
+
+.nav-header {
+    @include p(1);
+    position: relative;
+    text-align: center;
+    .toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+        @include p(1);
+
+        @include md {
+            display: none;
+        }
+    }
+    .logo {
+        color: rgba($white, 0.7);
+        font-weight: 500;
+        font-size: $font-size-xxl * 0.5;
+        letter-spacing: 0.2rem * 0.5;
+    }
+}

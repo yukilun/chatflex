@@ -1,0 +1,274 @@
+@use './styles/' as *;
+
+//IMPORT GOOGLE FONT
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+//RESET STYLES
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @include gradientBg;
+    background-color: $theme;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a.hyperlink {
+    position:relative;
+    font-weight: 600;
+    color: $theme;
+    text-transform: uppercase;
+    &:hover {
+        color: $theme-dark;
+    } 
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 1.5px;
+        width: 0%;
+        background-color: $theme-dark;
+    }
+    &:hover::after {
+        width: 100%;
+        transition: all 500ms;
+    }
+
+}
+
+hr {
+    border: 0;
+    border-top: 1px dotted #efefef;
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+// SCROLLBAR STYLE 
+@include lg {
+        /* Firefox */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: $theme-extra-light, $theme
+        }
+    
+        /* Chrome, Edge, and Safari */
+        *::-webkit-scrollbar {
+            width: 10px;
+        }
+    
+        *::-webkit-scrollbar-track {
+            background: $theme-extra-light;
+            border-radius: 5px;
+        }
+    
+        *::-webkit-scrollbar-thumb {
+            background-color: $theme;
+            border-radius: 14px;
+            border: 2px solid $theme-extra-light;
+        }
+    
+        *::-webkit-scrollbar-thumb:hover {
+            background-color: $theme-dark;
+        }
+}
+
+// COMMON STYLES
+.logo {
+    font-family: 'Abril Fatface', cursive;
+    color: $theme-dark;
+    font-size: $font-size-xxl;
+    letter-spacing: 0.2rem;
+}
+
+@each $key, $val in $colors {
+    .btn-#{$key} {
+        background-color: $val;
+        cursor: pointer;
+        border: 0;
+        font-weight: 600;
+        font-size: $font-size-base;
+        text-transform: uppercase;
+        border-radius: 0.5rem;
+        @include py(1.25);
+        @include px(3);
+        
+        @if ($val == $white) {
+            color: $gray;
+        }
+        @else {
+            color: $white;
+        }
+
+        span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            .icon {
+                font-size: $font-size-lg;  
+            }
+        }
+    
+        &:hover {
+            background-color: mix($black, $val, 10%);
+        } 
+    }
+}
+
+.formContainer {
+    @include m(2);
+    @include p(1);
+    width: 90%;
+    max-width: 600px;
+    background-color: rgba($white, 0.45);
+    border-radius: 1rem;
+    box-shadow: 0 0 10px 1px rgba($black,0.25);
+    backdrop-filter: blur(15px);
+    text-align: center;
+    color: $gray-dark;
+
+    .logo {
+        @include my(2);
+    }
+    
+    form {
+        width: 90%;
+        margin: 0 auto;
+        color: $gray;
+        font-weight: bold;
+
+        .formArea {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            @include lg {
+                flex-direction: row;
+            }
+
+            .inputAvatar {
+                flex-shrink: 0;
+                label {
+                    cursor: pointer;
+                    img {
+                        width: 125px;
+                        height: 125px;
+                        object-fit: cover;
+                        background-color: white;
+                        border: 4px solid white;
+                        border-radius: 50%;
+                        box-shadow: 2px 5px 5px rgba($black,0.1);
+                        @include lg {
+                            width: 150px;
+                            height: 150px;
+                        }
+                    }
+                    &:hover > img{
+                        box-shadow: 0px 0px 20px #51aad3;
+                    }
+                }
+                input {
+                    display: none;
+                }
+            }
+    
+            .inputFields {
+                flex-grow: 1;
+                width: 100%;
+                .input {
+                    @include my(2);
+                    @include py(0.2);
+                    @include px(1);
+                    text-align: start;
+                    background-color: $white;
+                    border-radius: 0.5rem;
+                    box-shadow: 1px 5px 8px rgba($black,0.1);
+            
+                    &:focus-within {
+                        box-shadow: 0px 0px 20px #51aad3;
+                    }
+        
+                    label, input {
+                        display: block;
+                        width: 100%;
+                        @include my(0.8);
+                    }
+        
+                    label {
+                        text-transform: uppercase;
+                        font-size: $font-size-sm;
+                    }
+        
+                    input {
+                        font-size: $font-size-base;
+                        border: none;
+                        border-radius: 0.8rem;
+                        outline: none;
+                        &::placeholder {
+                            color: $gray-light;
+                        }
+                    }
+
+                }    
+            }
+        }
+
+        .submit {
+            @include my(2);
+            text-align: center;
+
+            button {
+                width: 100%;
+                span {
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+}
+
+.link {
+    @include my(2);
+}
+
+.test {
+    height: 512px;
+    width: 512px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $theme-light;
+    .logo {
+        font-size: $font-size-xxl * 1.75;
+        letter-spacing: 0.2rem * 1.75;
+    }
+}

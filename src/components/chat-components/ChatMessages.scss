@@ -1,0 +1,33 @@
+@use '../../styles' as *;
+
+.chat-no-user {
+    @include p(1);
+    @include mxAuto;
+    flex: 1 0 0;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+
+    i{
+        font-size: 70px;
+        color: $gray; 
+    }
+    h3 {    
+        font-size: $font-size-lg;
+        color: $theme;
+    }
+    p {
+        font-size: $font-size-base;
+        color: $gray;
+    }
+}
+
+
+ .chat-messages {
+    flex: 1 0 0;
+    overflow-y: auto;
+ }

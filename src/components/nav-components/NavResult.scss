@@ -1,0 +1,29 @@
+@use '../../styles' as *;
+
+.nav-result {
+    flex-grow: 1;
+    overflow-y: auto;
+
+    .result {
+        &--title {
+            @include p(1);
+            font-size: $font-size-base;
+            text-decoration: underline;
+            text-underline-offset: 0.5rem;
+        }
+
+        &--item {
+            @include p(1);
+            @include navUserItem;
+            cursor: pointer;
+            &:hover {
+                background-color: rgba($white, 0.3);
+            }
+        }
+
+        &--nothing {
+            @include p(1);
+            font-size: $font-size-base;
+        }
+    }
+}

@@ -1,0 +1,135 @@
+@use './variables' as *;
+
+//BREAK POINT
+@mixin xs {
+  @media (min-width: map-get($breakpoints, "xs")) {
+    @content;
+  }
+}
+
+@mixin sm {
+  @media (min-width: map-get($breakpoints, "sm")) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: map-get($breakpoints, "md")) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media (min-width: map-get($breakpoints, "lg")) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: map-get($breakpoints, "xl")) {
+    @content;
+  }
+}
+
+@mixin breakpoint($bp: 0) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+// SPACING - PADDING & MARGIN
+@mixin p($num) {
+    padding: $base-padding * $num;
+}
+@mixin py($num) {
+    padding-top: $base-padding * $num;
+    padding-bottom: $base-padding * $num;
+}
+@mixin px($num) {
+    padding-left: $base-padding * $num;
+    padding-right: $base-padding * $num;
+}
+@mixin pt($num) {
+    padding-top: $base-padding * $num;
+}
+@mixin pb($num) {
+    padding-bottom: $base-padding * $num;
+}
+@mixin m($num) {
+    margin: $base-margin * $num;
+}
+@mixin my($num) {
+    margin-top: $base-margin * $num;
+    margin-bottom: $base-margin * $num;
+}
+@mixin mx($num) {
+    margin-left: $base-margin * $num;
+    margin-right: $base-margin * $num;
+}
+@mixin mt($num) {
+    margin-top: $base-margin * $num;
+}
+@mixin mb($num) {
+    margin-bottom: $base-margin * $num;
+}
+@mixin myAuto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+@mixin mxAuto {
+    margin-left: auto;
+    margin-right: auto;
+}
+@mixin mlAuto {
+    margin-left: auto;
+}
+@mixin mrAuto {
+    margin-right: auto;
+}
+
+// POSITIONING
+@mixin absoluteCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// GRADIENT-BG 
+@mixin gradientBg {
+    background: linear-gradient(to bottom, $theme-light, $theme 70%, $theme-dark 100%);
+} 
+
+// NAV-USER-ITEM
+@mixin navUserItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &__icon {
+        width: $avatar-chat-size;
+        height: $avatar-chat-size;
+        background-color: white;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    &__name {
+        flex: 1 0 0;
+        font-size: $font-size-base;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    &__status {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        &.online {
+            background-color: greenyellow;
+        }
+        &.offline {
+            background-color: red;
+        }
+    }
+}

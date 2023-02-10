@@ -1,0 +1,42 @@
+@use '../styles/' as *;
+
+.container {
+    height: 100vh;
+}
+
+
+.home-container {
+    @include m(2);
+    width: 90%;
+    max-width: 1000px;
+    height: 90%;
+    background-color: rgba($white, 0.45);
+    border-radius: 1rem;
+    box-shadow: 0 0 10px 1px rgba($black,0.25);
+    backdrop-filter: blur(15px);
+    color: $gray-dark;
+    display: flex;
+    overflow: hidden;
+    @include md {
+        max-height: 700px;
+    }
+}
+
+.btn {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    color: rgba($white, 0.6);
+    font-size:  $font-size-lg;
+    transition: all 500ms;
+
+    &:hover {
+        color: $white;
+    }
+
+    &.toggle {
+        &:hover {
+            transform: rotate(90deg);
+        }
+    }
+}

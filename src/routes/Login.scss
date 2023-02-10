@@ -1,0 +1,47 @@
+@use '../styles/' as *;
+
+.hr-text {
+    @include my(2);
+    display: flex;
+    text-transform: uppercase;
+    &::before, &::after {
+        content: '';
+        flex-grow: 1;
+        border-bottom: 1px solid;
+        margin: auto 1rem;
+    }
+}
+
+.other-login {
+    @include my(2);
+    @include mxAuto;
+    display: flex;
+    max-width: 300px;
+    justify-content: space-around;
+    .btn-app {
+        height: 3rem;
+        width: 3rem;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+
+        &--google {
+            background-color: $white;
+        }
+        &--facebook {
+            background-color: #4267B2;
+        }
+        &--github {
+            background-color: $black;
+        }
+        &:hover {
+            box-shadow: 0 0 10px 2px rgba($white, 0.5);
+            transform: scale(1.05);
+            transition: all 200ms;
+        }
+    }
+}
+

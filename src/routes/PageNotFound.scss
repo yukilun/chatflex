@@ -1,0 +1,8 @@
+@use '../styles' as *;
+@use '../index' as *;
+
+.not-found {
+    @extend .logo;
+    @include m(8);
+    text-align: center;
+}

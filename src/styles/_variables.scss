@@ -1,0 +1,61 @@
+//THEME COLOR
+$theme:#416E83;
+$theme-dark:#294c58;
+$theme-light:#6D838C;
+$theme-extra-light:#b9d2db;
+$highlight: #b3976e;
+$error: #e9768f;
+
+// WHITE AND GRAY COLORS
+$white:  #fff;
+$gray: #6c757d;
+$gray-light: #9ca8b3;
+$gray-dark: #424446;
+$gray-extra-dark: #262729;
+$black:  #000;
+
+
+$colors: (
+    'theme': $theme,
+    'theme-dark': $theme-dark,
+    'theme-light': $theme-light,
+    'theme-extra-light': $theme-extra-light,
+    'highlight': $highlight,
+    'white': $white,
+    'gray': $gray,
+    'gray-light': $gray-light,
+    'gray-dark': $gray-dark,
+    'gray-extra-dark': $gray-extra-dark,
+    'black': $black,
+);
+
+// FONT SIZES
+$font-size-base: 1rem;
+$font-size-sm: $font-size-base * 0.75;
+$font-size-lg: $font-size-base * 1.5;
+$font-size-xl: $font-size-base * 2;
+$font-size-xxl: $font-size-base * 3;
+
+// SPACING
+$base-padding: 0.75rem;
+$base-margin: 0.75rem;
+
+// BORDERS
+$base-border-thickness: 1px;
+$base-border-radius: 20px;
+
+// BOX-SHADOW
+$base-box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+
+//BREAKPOINTS
+$breakpoints: (
+  "xs": 0,
+  "sm": 480px,
+  "md": 720px,
+  "lg": 960px,
+  "xl": 1200px,
+);
+
+//AVATAR-HEIGHT-WIDTH
+$avatar-chat-size: 45px;
+$avatar-list-size: 35px;

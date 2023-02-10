@@ -1,0 +1,31 @@
+@use '../../styles' as *;
+
+.nav-profile {
+    @include px(1);
+    @include pt(1);
+    @include pb(2);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    &--info {
+        @include navUserItem;
+    }
+
+    &--btns {
+        display: flex;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 2px;
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        background-color: $gray;
+    }
+}

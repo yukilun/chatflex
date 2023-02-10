@@ -1,0 +1,42 @@
+@use '../../styles' as *;
+
+.chat-header {
+    @include p(1);
+    background-color: $theme;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+        width: $avatar-chat-size;
+        height: $avatar-chat-size;
+        background-color: white;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .toUser-name {
+        flex-basis: auto;
+        font-size: $font-size-base *1.25;
+        color: $white;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        &.noUser {
+            color: $gray-light;
+        }
+    }
+
+    .status {
+        height: 10px;
+        width: 10px;
+        border-radius: 50%;
+        &.online {
+            background-color: greenyellow;
+        }
+        &.offline {
+            background-color: red;
+        }
+    }
+}

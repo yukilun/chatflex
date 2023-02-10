@@ -1,0 +1,78 @@
+@use '../../styles' as *;
+
+.chat-message {
+    @include p(1);
+    position: relative;
+
+    .chat-message-item {
+        width: fit-content;
+        max-width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+
+        &.on-left {
+            @include mrAuto;
+        }
+
+        &.on-right {
+            @include mlAuto;
+        }
+
+        &__body {
+            width: fit-content;
+            display: flex;
+            gap: 1rem;
+            font-size: $font-size-base;
+
+            .icon {
+                width: $avatar-chat-size;
+                height: $avatar-chat-size;
+                background-color: white;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            .message {
+                @include p(1);
+                border-radius: 1rem;
+                img {
+                    max-height: 50vh;
+                }
+            }
+
+            &.on-left {
+                .message {
+                    background-color: $theme-dark;
+                    color: $white;
+                    border-top-left-radius: 0.1rem;
+                }
+            }
+
+            &.on-right {
+                flex-direction: row-reverse;
+
+                .message {
+                    background-color: $white;
+                    border-top-right-radius: 0.1rem;
+                }
+            }
+        }
+
+        &__time {
+            font-size: $font-size-sm;
+            color: $gray-dark;
+            &.on-left {
+                text-align: right;
+                align-self: flex-end;
+            }
+
+            &.on-right {
+                text-align: left;
+                align-self: flex-start;
+            }
+        }
+    }
+
+}
