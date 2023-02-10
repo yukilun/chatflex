@@ -27,13 +27,13 @@ export default function App() {
         <main>
             <ToastContainer position="top-center" autoClose={2000} />
             {/* <RouterProvider router={router} /> */}
-            <BrowserRouter basename="/chatflex">
+            <BrowserRouter>
                 <Routes>
                     <Route path="/">
                         <Route index element={<ProtectedRoute><Home /></ProtectedRoute>}/>
-                        <Route path="/login" element={<RedirectRoute><Login /></RedirectRoute>} />
-                        <Route path="/register" element={<RedirectRoute><Register /></RedirectRoute>} />
-                        <Route path="/*" element={<RedirectRoute><PageNotFound /></RedirectRoute>} />
+                        <Route path="login" element={<RedirectRoute><Login /></RedirectRoute>} />
+                        <Route path="register" element={<RedirectRoute><Register /></RedirectRoute>} />
+                        <Route path="*" element={<RedirectRoute><PageNotFound /></RedirectRoute>} />
                     </Route>
                 </Routes>
             </BrowserRouter>
