@@ -8,18 +8,17 @@ import { AuthContext } from './context/AuthContext.js';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 export default function App() {
 
     const { user } = useContext(AuthContext);
 
     const ProtectedRoute = ({ children }) => {
-        if (!user)  return <Navigate to='/login' />
+        if (!user)  return <Navigate to='/login' replace={true}/>
         return children;
     }
 
     const RedirectRoute = ({children}) => {
-        if(user) return <Navigate to='/' />
+        if(user) return <Navigate to='/'replace={true}/>
         return children;
     } 
 
