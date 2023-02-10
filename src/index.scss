@@ -16,8 +16,8 @@ body {
 }
 
 .container {
-    min-height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
-    min-height: -moz-available;
+    height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
+    height: -moz-available;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,7 +26,7 @@ body {
 
 @supports (-webkit-touch-callout: none) {
     .container {
-      min-height: -webkit-fill-available;
+      height: -webkit-fill-available;
     }
 }
 
@@ -157,6 +157,8 @@ button {
 .formContainer {
     @include m(2);
     @include p(1);
+    max-height: 90%;
+    overflow-y: auto;
     width: 90%;
     max-width: 600px;
     background-color: rgba($white, 0.45);
