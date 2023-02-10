@@ -14,6 +14,8 @@ export default function NavProfile() {
     const { onDisconnectRef } = useContext(AuthContext);
     const { currentUser: user } = useContext(UserContext);
 
+    console.log(user);
+
     const handleLogout = async () => {
         toast.dismiss();
         const msg = toast.loading('Logging Out...')
