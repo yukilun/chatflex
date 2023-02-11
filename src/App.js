@@ -24,7 +24,7 @@ export default function App() {
 
     return (
         <main>
-            <ToastContainer position="top-center" autoClose={2000} />
+            <ToastContainer position="top-center" autoClose={2000} style={{ paddingTop: 'env(safe-area-inset-top)' }}/>
             <BrowserRouter>
                 <Routes>
                     <Route path="/">
