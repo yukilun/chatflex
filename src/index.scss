@@ -25,19 +25,27 @@ body {
 }
 
 .container {
-    height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
-    height: -moz-available;
+    @include gradientBg;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    // height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
+    // height: -moz-available;
+    padding-top: env(safe-area-inset-top, 20px);
+    padding-bottom:  env(safe-area-inset-bottom, 20px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-@supports (-webkit-touch-callout: none) {
-    .container {
-      height: -webkit-fill-available;
-    }
-}
+// @supports (-webkit-touch-callout: none) {
+//     .container {
+//       height: -webkit-fill-available;
+//     }
+// }
 
 ul {
     padding: 0;
