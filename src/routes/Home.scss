@@ -2,8 +2,8 @@
 
 .home-container {
     @include m(2);
-    position: relative;
-    height: 90%;
+    flex-grow: 1;
+    position: relative; 
     width: 90%;
     max-width: 1000px;
     background-color: rgba($white, 0.45);
