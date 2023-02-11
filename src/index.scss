@@ -29,7 +29,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    height: calc(100% + env(safe-area-inset-top));
     width: 100%;
     // height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
     // height: -moz-available;
