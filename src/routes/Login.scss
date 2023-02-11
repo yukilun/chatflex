@@ -16,8 +16,8 @@
     @include my(2);
     @include mxAuto;
     display: flex;
-    max-width: 300px;
-    justify-content: space-around;
+    max-width: 250px;
+    justify-content: space-between;
     .btn-app {
         height: 3rem;
         width: 3rem;
@@ -27,6 +27,12 @@
         justify-content: center;
         align-items: center;
         color: $white;
+
+        svg {
+            font-size: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
 
         &--google {
             background-color: $white;
