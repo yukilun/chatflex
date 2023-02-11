@@ -26,10 +26,11 @@ body {
 
 .container {
     @include gradientBg;
+    box-sizing: content-box;
     position: fixed;
     top: 0;
     left: 0;
-    height: calc(100% + env(safe-area-inset-top) + env(safe-area-inset-bottom));
+    height: calc(100% + env(safe-area-inset-top));
     width: 100%;
     // height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
     // height: -moz-available;
