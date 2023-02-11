@@ -34,8 +34,8 @@ body {
     width: 100%;
     // height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
     // height: -moz-available;
-    padding-top: max(env(safe-area-inset-top), 20px);
-    padding-bottom:  max(env(safe-area-inset-bottom), 20px);
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
     display: flex;
     flex-direction: column;
     justify-content: center;
