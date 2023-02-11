@@ -1,13 +1,11 @@
 @use '../styles/' as *;
 
 .home-container {
-    @include m(2);
+    @include myAuto;
     position: relative;
     width: 90%;
     max-width: 1000px;
     height: 90%;
-    min-height: 90%;
-    max-height: 90%;
     background-color: rgba($white, 0.45);
     border-radius: 1rem;
     box-shadow: 0 0 10px 1px rgba($black,0.25);
@@ -16,7 +14,6 @@
     display: flex;
     overflow: hidden;
     @include md {
-        min-height: 0;
         max-height: 700px;
     }
 }
