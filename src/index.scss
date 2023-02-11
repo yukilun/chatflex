@@ -12,11 +12,13 @@
 html {
     overflow: hidden;
     overscroll-behavior: none;
+    height: calc(100% + env(safe-area-inset-top));
 }
 
 body {
-    @include gradientBg;
     background-color: $theme;
+    @include gradientBg;
+    height: 100%;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -25,12 +27,10 @@ body {
 }
 
 .container {
-    @include gradientBg;
-    box-sizing: content-box;
     position: fixed;
     top: 0;
     left: 0;
-    height: calc(100% + env(safe-area-inset-top));
+    height: 100%;
     width: 100%;
     // height: calc(100vh - env(safe-area-inset-bottom, 0) - env(safe-area-inset-top, 0));
     // height: -moz-available;
