@@ -9,10 +9,19 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
 body {
     @include gradientBg;
     background-color: $theme;
     font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
 }
 
 .container {
