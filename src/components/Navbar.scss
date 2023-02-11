@@ -20,6 +20,7 @@
         transform: none;
     }
     @include md {
+        height: auto;
         position: relative;
         transform: none;
     } 
