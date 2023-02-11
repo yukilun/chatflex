@@ -25,3 +25,26 @@
         transform: none;
     } 
 }
+
+.nav-loading {
+    @include p(1);
+    flex-grow: 1;
+    font-size: $font-size-xxl;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    svg {
+        animation: rotate linear infinite 3s;
+    }
+}

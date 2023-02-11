@@ -4,7 +4,6 @@ import NavResultUsers from './NavResultUsers';
 import './NavResult.scss';
 
 export default function NavResult({query, users, setOpenNavbar}) {
-  
   return (
     <div className='nav-result'>
       <NavResultChats query={query} users={users} setOpenNavbar={setOpenNavbar}/>

@@ -32,8 +32,8 @@ export default function NavProfile() {
     return (
         <div className='nav-profile'>
             <div className='nav-profile--info'>
-                <img src={user.customPhotoURL ? user.customPhotoURL : user.photoURL ? user.photoURL : avatar} alt="user icon" className='nav-profile--info__icon'/>
-                <div className='nav-profile--info__name'>{user.customDisplayName ? user.customDisplayName : user.displayName}</div>
+                <img src={user.photoURL ? user.photoURL : avatar} alt="user icon" className='nav-profile--info__icon'/>
+                <div className='nav-profile--info__name'>{user.displayName}</div>
                 <div className={'nav-profile--info__status ' + (user.status === 'online' ? 'online' : 'offline')}> </div>
             </div>
             <div className='nav-profile--btns'>
